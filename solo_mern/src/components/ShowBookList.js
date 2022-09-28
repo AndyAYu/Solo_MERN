@@ -13,16 +13,21 @@ class ShowBookList extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get('http://localhost:8082/api/books')
-      .then(res => {
-        this.setState({
-          books: res.data
-        })
-      })
-      .catch(err =>{
-        console.log('Error from ShowBookList');
-      })
+
+  // const options = {
+  //   method: 'GET',
+  //   url: 'https://omgvamp-hearthstone-v1.p.rapidapi.com/info',
+  //   headers: {
+  //     'X-RapidAPI-Key': 'a17e0f9684msh88dfd90d6f6341ap1810eajsn3bf7c5c17948',
+  //     'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
+  //   }
+  // };
+
+  // axios.request(options).then(function (response) {
+  //   console.log(response.data);
+  // }).catch(function (error) {
+  //   console.error(error);
+  // });
   };
 
 
@@ -45,7 +50,7 @@ class ShowBookList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Books List</h2>
+              <h2 className="display-4 text-center">Hearth Stone</h2>
             </div>
 
             <div className="col-md-11">
