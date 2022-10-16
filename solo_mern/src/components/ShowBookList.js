@@ -55,7 +55,7 @@ class ShowBookList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Hearth Stone</h2>
+              <h2 className="display-4 text-center">Log || Log</h2>
             </div>
 
             <div className="col-md-11">
@@ -63,14 +63,14 @@ class ShowBookList extends Component {
                 + Add New Book
               </Link>
               <nav class="navbar navbar-expand-lg navbar-light bg-darkgrey">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="mentors">Mentors <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#">Features</a>

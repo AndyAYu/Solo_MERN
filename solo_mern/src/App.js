@@ -6,6 +6,7 @@ import CreateBook from './components/CreateBook';
 import ShowBookList from './components/ShowBookList';
 import ShowBookDetails from './components/ShowBookDetails';
 import UpdateBookInfo from './components/UpdateBookInfo';
+import Mentors from './components/Mentors';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path='/create-book' element={<CreateBook/>} />
           <Route path='/edit-book/:id' element={<UpdateBookInfo/>} />
           <Route path='/show-book/:id' element={<ShowBookDetails/>} />
+          <Route path='/mentors' element={<Mentors/>} />
         </Routes>
       </Router>
     );
