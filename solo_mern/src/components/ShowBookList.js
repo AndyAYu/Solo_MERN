@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import axios from 'axios';
+// import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BookCard from './BookCard';
 
@@ -38,7 +38,7 @@ class ShowBookList extends Component {
     const books = this.state.books;
     console.log("PrintBook: " + books);
     let cardList;
-    let buttonList;
+    // let buttonList;
 
     if(!books) {
       cardList = "there is no book record!";
@@ -47,7 +47,7 @@ class ShowBookList extends Component {
         <BookCard book={book} key={k} />
       );
     }
-    buttonList = (Object.keys(this.state))
+    // buttonList = (Object.keys(this.state))
 
     return (
       <div className="ShowBookList">
@@ -55,12 +55,18 @@ class ShowBookList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Log || Log</h2>
+              <h2 className="display-4 text-center">Hearth || Collector</h2>
             </div>
 
             <div className="col-md-11">
               <Link to="/create-book" className="btn btn-outline-warning float-right">
                 + Add New Book
+              </Link>
+              <Link to="/signup" className="btn btn-outline-info float-right">
+                Signup
+              </Link>
+              <Link to="/login" className="btn btn-outline-info float-right">
+                Login
               </Link>
               <nav class="navbar navbar-expand-lg navbar-light bg-darkgrey">
                 <a class="navbar-brand" href="#">Home</a>
@@ -70,7 +76,7 @@ class ShowBookList extends Component {
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
                     <li class="nav-item active">
-                      <a class="nav-link" href="mentors">Mentors <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="mentors">Decks <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#">Features</a>

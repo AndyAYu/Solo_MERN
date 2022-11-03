@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import { renderMatches } from 'react-router-dom';
 
-
-class Mentors extends Component {
+class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,16 +8,13 @@ class Mentors extends Component {
         };
     }
 
-
     render() {
         return(
             <div>
-                This is the mentor page
-                <div>
-                </div>
+                This is the Signup page
             </div>
         )
     }
-};
+}
 
-export default Mentors;
+export default Signup;
