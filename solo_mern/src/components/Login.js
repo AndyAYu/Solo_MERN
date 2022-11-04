@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 export default function Login() {
 
@@ -13,6 +14,13 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const data = {
+        Email: this.state.Email,
+        Password: this.state.Password
+    };
+
+    axios
+        .post('http://localhost:3000/api')
   }
 
   return (
