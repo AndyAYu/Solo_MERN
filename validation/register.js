@@ -4,18 +4,10 @@ const validText = require('./valid-text');
 module.exports = function validateRegisterInput(data) {
   let errors = {};
 
-  data.denomination = validText(data.denomination) ? data.denomination : '';
   data.email = validText(data.email) ? data.email : '';
   data.password = validText(data.password) ? data.password : '';
   data.password2 = validText(data.password2) ? data.password2 : '';
 
-  if (!Validator.isLength(data.denomination, { min: 2, max: 30 })) {
-    errors.denomination = 'denomination must be between 2 and 30 characters';
-  }
-
-  if (Validator.isEmpty(data.denomination)) {
-    errors.denomination = 'denomination field is required';
-  }
 
   if (Validator.isEmpty(data.email)) {
     errors.email = 'Email field is required';
