@@ -1,68 +1,61 @@
 //models/User.js
 
-const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
-const crypto = require('crypto')
-const jwt = require('jsonwebtoken');
-const secret = require('../config').secret;
+import mongoose from 'mongoose'
 
 const UserSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        lowercase: true,
-        unique: true,
-        required: [ true, "can't be blank"],
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
-        index: true
-    },
     email: {
         type: String,
         lowercase: true,
+        trim: true,
         unique: true,
-        required: [true, "can't be blank"],
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+        required: [true, "Email is required"],
+        match: [/^[a-zA-Z0-9]+$/, 'Email is invalid'],
         index: true
     },
-    password: {
+    hashed_password: {
         type: String,
-        required: true
+        required: [true, "Password is required"]
     },
-    
+    salt: String
 },{timestamps: true});
 
-UserSchema.plugin(uniqueValidator, {message: 'is already taken.'});
+UserSchema
+    .virtual('password')
+    .set(function(password) {
+        this._password = password
+        this.salt = this.makeSalt()
+        this.hashed_password = this.encryptPassword(password)
+    })
+    .get(function() {
+        return this._password
+    })
 
-UserSchema.methods.setPassword = function(password) {
-    this.salt = crypto.randomBytes(16).toString('hex');
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-};//runs pbkdf2 with same number of iterations and key length as our password and checks data if match
-
-UserSchema.methods.validPassword = function(password) {
-    const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');;
-    return this.hash === hash;
-};//generates JWT that will be passed to front-end for authentication. JWT contains payload that is signed
-//by backend so can be read by front and back. Only validates at the back-end
-
-UserSchema.methods.generateJWT = function() {
-    const today = new Date();
-    const exp = new Date(today);
-    exp.setDate(today.getDate() + 60);
-
-    return jwt.sign({
-        id: this._id,
-        username: this.username,
-        exp: parseInt(exp.getTime() / 1000),
-    }, secret);
-};
-
-UserSchema.methods.toAuthJSON = function(){
-    return {
-        username: this.username,
-        email: this.email,
-        token: this.generateJWT(),
+UserSchema.methods = {
+    authenticate: function(plainText) {
+        return this.encryptPassword(plainText) === this.hashed_password
+    },
+    encryptPassword: function(password) {
+        if (!password) return ''
+        try {
+            return crypto
+                .createHmac('shal', this.salt)
+                .update(password)
+                .digest('hex')
+        } catch (err) {
+            return ''
+        }
+    },
+    makeSalt: function() {
+        return Math.round((new Date().valueOf() * Math.random())) + ''
     }
 }
 
-
-
-module.exports = User = mongoose.model('User', UserSchema);
+UserSchema.path('hashed_password').validate(function(v) {
+    if (this._password && this._password.length < 6) {
+        this.invalidate('password', 'Password must be at least 6 characters.')
+    }
+    if (this.isNew && !this._password) {
+        this.invalidate('password', 'Password is required')
+    }
+},null)
+export default mongoose.model('User', UserSchema);

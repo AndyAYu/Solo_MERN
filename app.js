@@ -25,15 +25,15 @@ app.get('/', (req, res) => res.send('Hello world!'));
 app.use('/api/books', books);
 
 // use users
-app.use(require('./routes'))
+// app.use(require('./routes'))
 
 const port = process.env.PORT || 8082;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
-app.post("/register", (req, res) => {
+app.post("/register", async (req, res) => {
     // Check to make sure the email provided not registered
-
+    const ( email, password, )
     User.findOne({ email: req.body.email }).then((user => {
         if (user) {
             //Throw a 400 error if the email address already exists
