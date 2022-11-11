@@ -47,7 +47,7 @@ const login = async (req, res, next) => {
         return res.status(400).json({message: 'Invalid Email / Password'})
     }
 const token = jwt.sign({id: existingUser._id},JWT_SECRET_KEY,{
-    expiresIn: "1hr"
+    expiresIn: "30s"
 });
 
 res.cookie(String(existingUser._id),token,{
@@ -63,8 +63,9 @@ res.cookie(String(existingUser._id),token,{
 }
 
 const verifyToken = (req,res,next) => {
-    const headers = req.headers['authorization'];
-    const token = headers.split(" ")[1];
+    const cookies = req.headers.cookie;
+    const token = cookies.split("=")[1];
+    console.log(token);
     if(!token) {
         res
         .status(404)
