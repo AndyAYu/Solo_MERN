@@ -1,16 +1,14 @@
-//models/User.js
-
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        lowercase: true,
-        unique: true,
-        required: [ true, "can't be blank"],
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
-        index: true
-    },
+    // username: {
+    //     type: String,
+    //     lowercase: true,
+    //     unique: true,
+    //     required: [ true, "can't be blank"],
+    //     match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+    //     index: true
+    // },
     email: {
         type: String,
         lowercase: true,
@@ -21,11 +19,12 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minlength: 6
     },
     
 },{timestamps: true});
 
 
 
-module.exports = User = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);

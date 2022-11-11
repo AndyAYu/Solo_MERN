@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const router = require("./routes/user-routes")
 
 const app = express();
 
+app.use('/api', router)
 mongoose
     .connect(
         "mongodb+srv://solo_mern:Solo5502!@cluster0.4z2ybt2.mongodb.net/?retryWrites=true&w=majority"
@@ -20,7 +22,7 @@ mongoose
 // Init Middleware
 // app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => res.send('Hello world!'));
+// app.get('/', (req, res) => res.send('Hello world!'));
 
 // use books
 // app.use('/api/books', books);
