@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const router = require("./routes/user-routes")
+const router = require('./routes/user-routes')
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
 // Init Middleware
+app.use(cookieParser());
 app.use(express.json({ extended: false }));
 app.use('/api', router)
 mongoose
