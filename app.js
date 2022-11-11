@@ -4,10 +4,12 @@ const router = require("./routes/user-routes")
 
 const app = express();
 
+// Init Middleware
+app.use(express.json({ extended: false }));
 app.use('/api', router)
 mongoose
     .connect(
-        "mongodb+srv://solo_mern:Solo5502!@cluster0.4z2ybt2.mongodb.net/?retryWrites=true&w=majority"
+        "mongodb+srv://solo_mern:Solo5502!@cluster0.4z2ybt2.mongodb.net/Solo-MERN?retryWrites=true&w=majority"
     )
     .then(() => {
         app.listen(8082);
@@ -15,12 +17,8 @@ mongoose
     })
     .catch((err) => console.log(err));
 
-
 // cors
 // app.use(cors({ origin: true, credentials: true }));
-
-// Init Middleware
-// app.use(express.json({ extended: false }));
 
 // app.get('/', (req, res) => res.send('Hello world!'));
 
