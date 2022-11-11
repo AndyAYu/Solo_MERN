@@ -10,7 +10,7 @@ var cors = require('cors');
 
 // routes
 const books = require('./routes/api/books');
-const users = require('./routes/api/users');
+// const users = require('./routes/api/users');
 const app = express();
 
 
@@ -28,5 +28,3 @@ app.use('/api/books', books);
 const port = process.env.PORT || 8082;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
-
-app.use("/api/users", users);
