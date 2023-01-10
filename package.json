@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": { 
-	"start": "react-app-rewired start", 
-  "build": "react-app-rewired build", 
-  "test": "react-app-rewired test", 
-  "eject": "react-scripts eject" 
- },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AndyAYu/Solo_MERN.git"
