@@ -3,6 +3,7 @@ import '../App.css';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BookCard from './BookCard';
+import newsFetch from './News/News';
 
 const apikey = "695d50b87ff846f6afff0a3e53aa2b1b"
 
@@ -10,19 +11,13 @@ class ShowBookList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      classes: [],
-      sets: [],
-      types: [],
-      factions: [],
-      qualities: [],
-      races: [],
+      news: {},
     };
   }
 
   componentDidMount() {
   };
 
-  
 
   render() {
     const books = this.state.books;

@@ -34,6 +34,7 @@
     "npm": "^9.1.1",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
+    "util": "^0.12.5",
     "valid-text": "^1.0.0",
     "validation": "0.0.1",
     "validator": "^13.7.0"
