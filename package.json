@@ -30,9 +30,10 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.6.1",
     "mongoose-unique-validator": "^3.1.0",
+    "newsapi": "^2.4.1",
     "npm": "^9.1.1",
     "passport": "^0.6.0",
-    "passport-jwt": "^4.0.0",
+    "passport-jwt": "^4.0.1",
     "valid-text": "^1.0.0",
     "validation": "0.0.1",
     "validator": "^13.7.0"

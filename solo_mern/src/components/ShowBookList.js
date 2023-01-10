@@ -4,6 +4,8 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 import BookCard from './BookCard';
 
+const apikey = "695d50b87ff846f6afff0a3e53aa2b1b"
+
 class ShowBookList extends Component {
   constructor(props) {
     super(props);
@@ -18,21 +20,9 @@ class ShowBookList extends Component {
   }
 
   componentDidMount() {
-
-  // const options = {
-  //   method: 'GET',
-  //   url: 'https://omgvamp-hearthstone-v1.p.rapidapi.com/info',
-  //   headers: {
-  //     'X-RapidAPI-Key': 'a17e0f9684msh88dfd90d6f6341ap1810eajsn3bf7c5c17948',
-  //     'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
-  //   }
-  // };
-
-  // axios.request(options)
-  // .then(function (response){console.log(response.data);})
-  // .catch(function (error) {console.error(error);});
   };
 
+  
 
   render() {
     const books = this.state.books;
@@ -55,7 +45,7 @@ class ShowBookList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Hearth || Collector</h2>
+              <h2 className="display-4 text-center">Tech || Collector</h2>
             </div>
 
             <div className="col-md-11">
