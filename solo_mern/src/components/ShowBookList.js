@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import '../App.css';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -18,6 +18,11 @@ class ShowBookList extends Component {
   componentDidMount() {
   };
 
+newsFetch() {
+  // fetch('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=695d50b87ff846f6afff0a3e53aa2b1b')
+    .then(response => response.json())
+    .then(data => console.log(data))
+} 
 
   render() {
     const books = this.state.books;
