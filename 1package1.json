@@ -4,9 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "app": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,8 @@
     "npm": "^9.1.1",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
+    "react": "^18.2.0",
+    "react-scripts": "^5.0.1",
     "util": "^0.12.5",
     "valid-text": "^1.0.0",
     "validation": "0.0.1",
