@@ -1,33 +1,41 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-import BookCard from './BookCard';
-import NewsAPI from './News/News.js';
-import FlippableCard from './Card.js';
+// import BookCard from './BookCard';
+import newsJson from './news.json';
 
 
-const apikey = "695d50b87ff846f6afff0a3e53aa2b1b"
+// const apikey = "695d50b87ff846f6afff0a3e53aa2b1b"
 
 class ShowBookList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      news: {},
+      news: {newsJson},
     };
-    this.newsFetch = this.newsFetch.bind(this);
+    // this.newsFetch = this.newsFetch.bind(this);
   }
 
   componentDidMount() {
+    // this.newsFetch();
   };
 
 // fetch news api
-newsFetch() {
-  fetch('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=695d50b87ff846f6afff0a3e53aa2b1b')
-    .then(response => response.json())
-    .then(data => this.setState({ news: data }))
-    .catch(err => console.log(err));
-    return this.state.news;
-} 
+// newsFetch() {
+//   fetch('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=695d50b87ff846f6afff0a3e53aa2b1b')
+//   .then(response => {
+//     if (response.ok) {
+//       return response.json();
+//     }
+//     throw new Error('Network response was not ok.');
+//   })
+//   .then(data => {
+//     this.setState({ news: data });
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   })};
+
 
   render() {
     return (
@@ -36,7 +44,7 @@ newsFetch() {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Tech || Collector</h2>
+              <a href="localhost:3000/#"><h6 className="display-4 text-center text-light">The| | Co| |ector</h6></a>
             </div>
 
             <div className="col-md-11">
@@ -79,7 +87,17 @@ newsFetch() {
           </div>
 
           <div className="list">
-            <FlippableCard />
+            {/* from news.articles => news['newsJson'].articles */}
+            {this.state.news['newsJson'].articles && this.state.news['newsJson'].articles.map((article, i) => (
+              <div className="card" key={i}>
+                <div className="card-body">
+                  <img className="img-responsive" width="100%"src={article.urlToImage}></img>
+                  <h5 className="text-uppercase w-100 h-50 text-dark">{article.title}</h5>
+                  <h6 className="text-dark text-sm">{article.author}</h6>
+                  <p className="text-dark">{article.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
