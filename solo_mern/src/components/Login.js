@@ -14,9 +14,10 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    debugger
     const data = {
-        Email: this.state.Email,
-        Password: this.state.Password
+        Email: event.target[0].value,
+        Password: event.target[1].value
     };
 
     axios
@@ -25,8 +26,8 @@ export default function Login() {
 
   return (
     <div className="Login">
-        <div className="cotnainer">
-            <div class="align-middle">
+        <div className="container">
+            <div className="align-middle">
                 <Link to="/" className="btn btn-outline-warning float-left">
                         Show BooK List
                 </Link>
@@ -50,7 +51,7 @@ export default function Login() {
                         />
 
                     </Form.Group>
-                    <Button block size="lg" type="submit" disabled={!validateForm()}>
+                    <Button block="true" size="lg" type="submit" disabled={!validateForm()}>
                     Login
                     </Button>
                 </Form>
