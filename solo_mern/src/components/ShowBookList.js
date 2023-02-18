@@ -14,12 +14,22 @@ class ShowBookList extends Component {
       news: {newsJson},
     };
     // this.newsFetch = this.newsFetch.bind(this);
+    this.scrollToTop = this.scrollToTop.bind(this);
   }
 
   componentDidMount() {
     // this.newsFetch();
   };
 
+  scrollToTop() {
+    window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+    /* you can also use 'auto' behaviour
+      in place of 'smooth' */
+    });
+  };
+  
 // fetch news api
 // newsFetch() {
 //   fetch('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=695d50b87ff846f6afff0a3e53aa2b1b')
@@ -39,7 +49,7 @@ class ShowBookList extends Component {
 
   render() {
     return (
-      <div className="ShowBookList">
+      <div className="mainSplash">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -83,11 +93,8 @@ class ShowBookList extends Component {
               <br />
               <hr />
             </div>
-
           </div>
-
           <div className="list">
-            {/* from news.articles => news['newsJson'].articles */}
             {this.state.news['newsJson'].articles && this.state.news['newsJson'].articles.map((article, i) => (
               <div className="card" key={i}>
                 <a className="card-body hover-overlay"  target="_blank" href={article.url}>
@@ -98,8 +105,12 @@ class ShowBookList extends Component {
                 </a>
               </div>
             ))}
+              <button onClick={this.scrollToTop} className="btn btn-outline-info float-right">
+                Back to Top
+              </button>
           </div>
         </div>
+        
       </div>
     );
   }
