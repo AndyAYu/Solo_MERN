@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import BookCard from './BookCard';
 import newsJson from './news.json';
+import KommunicateChat from './Chat';
 
 
 // const apikey = "695d50b87ff846f6afff0a3e53aa2b1b"
 
-class ShowBookList extends Component {
+class MainSplash extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,7 +69,7 @@ class ShowBookList extends Component {
                 Login
               </Link> */}
               <nav className="navbar navbar-expand-lg navbar-light bg-darkgrey">
-                <a className="navbar-brand" href="#">Home</a>
+                {/* <a className="navbar-brand" href="#">Home</a> */}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                 </button>
@@ -77,7 +78,7 @@ class ShowBookList extends Component {
                     <li className="nav-item active">
                       <a className="nav-link" href="google-maps">Google Maps <span className="sr-only">(current)</span></a>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                       <a className="nav-link" href="#">Features</a>
                     </li>
                     <li className="nav-item">
@@ -85,7 +86,7 @@ class ShowBookList extends Component {
                     </li>
                     <li className="nav-item">
                       <a className="nav-link disabled" href="#">Disabled</a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </nav>
@@ -97,8 +98,8 @@ class ShowBookList extends Component {
           <div className="list">
             {this.state.news['newsJson'].articles && this.state.news['newsJson'].articles.map((article, i) => (
               <div className="card" key={i}>
-                <a className="card-body hover-overlay"  target="_blank" href={article.url}>
-                  <img className="img-responsive" width="100%"src={article.urlToImage}></img>
+                <a className="card-body hover-overlay"  target="_blank" rel="noreferrer" href={article.url}>
+                  <img className="img-responsive" alt="" width="100%"src={article.urlToImage}></img>
                   <h5 className="w-100 h-50 text-dark">{article.title}</h5>
                   <p className="text-dark">{article.author}</p>
                   <p className="text-dark">{article.description}</p>
@@ -109,6 +110,7 @@ class ShowBookList extends Component {
                 Back to Top
               </button>
           </div>
+              <KommunicateChat className="float-bottom-left bottom: 20px; right: 20px;"/>
         </div>
         
       </div>
@@ -116,4 +118,4 @@ class ShowBookList extends Component {
   }
 }
 
-export default ShowBookList;
+export default MainSplash;
