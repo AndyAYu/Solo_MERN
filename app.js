@@ -14,9 +14,9 @@ app.use(express.json({ extended: false }));
 app.use('/api', router)
 
 //Access-Control-Allow-Origin:
-app.get('/', (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-});
+// app.get('/', (req, res) => {
+//     res.set('Access-Control-Allow-Origin', '*');
+// });
 
 mongoose
     .connect(
