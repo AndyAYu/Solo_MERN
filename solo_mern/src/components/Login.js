@@ -21,7 +21,17 @@ export default function Login() {
     };
 
     axios
-        .post('http://localhost:3000/api')
+        .post('http://localhost:3000/api', data)
+        .then(res => {
+            setEmail('');
+            setPassword('');
+            this.props.history.push('/login')
+        }
+        )
+        .catch(err => {
+            console.log("Error in Login!");
+        }
+        )
   }
 
   return (
@@ -29,7 +39,7 @@ export default function Login() {
         <div className="container">
             <div className="align-middle">
                 <Link to="/" className="btn btn-outline-warning float-left">
-                        Show BooK List
+                        Home Page
                 </Link>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group size="lg" controlId="email">

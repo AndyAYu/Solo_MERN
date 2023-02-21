@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import BookCard from './BookCard';
 import newsJson from './news.json';
 import KommunicateChat from './Chat';
@@ -61,13 +61,13 @@ class MainSplash extends Component {
             <div className="col-md-11">
               {/* <Link to="/create-book" className="btn btn-outline-warning float-right">
                 + Add New Book
-              </Link>
+              </Link> */}
               <Link to="/signup" className="btn btn-outline-info float-right">
                 Signup
               </Link>
               <Link to="/login" className="btn btn-outline-info float-right">
                 Login
-              </Link> */}
+              </Link>
               <nav className="navbar navbar-expand-lg navbar-light bg-darkgrey">
                 {/* <a className="navbar-brand" href="#">Home</a> */}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
