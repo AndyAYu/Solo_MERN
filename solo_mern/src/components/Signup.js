@@ -1,85 +1,56 @@
-//Sign up component
-import React, { Component } from 'react';
-import '../App.css';
-import { Link } from 'react-router-dom';
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import axios from "axios";
+import React, { useState } from 'react';
 
-class Signup extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: ''
-        };
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-    }
-    
-    onChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
-    }
+function Signup() {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
 
-    onSubmit(e) {
-        e.preventDefault();
-        const data = {
-            Email: this.state.email,
-            Password: this.state.password
-        };
-        axios
-            .post('http://localhost:3000/api', data)
-            .then(res => {
-                this.setState({
-                    email: '',
-                    password: ''
-                })
-                this.props.history.push('/signup')
-            })
-            .catch(err => {
-                console.log("Error in Signup!");
-            })
-    }
+  const [errorMessage, setErrorMessage] = useState('');
 
-    render() {
-        return (
-            <div className="Signup">
-                <div className="container">
-                    <div className="align-middle">
-                        <Link to="/" className="btn btn-outline-warning float-left">
-                                Home Page
-                        </Link>
-                        <Form onSubmit={this.onSubmit}>
-                            <Form.Group size="lg" controlId="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control
-                                autoFocus
-                                type="email"
-                                name="email"
-                                value={this.state.email}
-                                onChange={this.onChange}
-                                />
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-                            </Form.Group>
-                            <Form.Group size="lg" controlId="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.onChange}
-                                />
+    fetch('http://localhost:8081', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = '/login';
+      } else {
+        response.json().then(data => setErrorMessage(data.message));
+      }
+    })
+    .catch(error => console.error(error));
+  };
 
-                            </Form.Group>
-                            <Button block="true" size="lg" type="submit">
-                            Sign Up
-                            </Button>
-                        </Form>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>Sign up</h2>
+      {errorMessage && <div className="error">{errorMessage}</div>}
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
+      </div>
+      <button type="submit">Sign up</button>
+    </form>
+  );
 }
 
 export default Signup;

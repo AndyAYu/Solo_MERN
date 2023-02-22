@@ -62,9 +62,7 @@ class MainSplash extends Component {
               {/* <Link to="/create-book" className="btn btn-outline-warning float-right">
                 + Add New Book
               </Link> */}
-              <Link to="/signup" className="btn btn-outline-info float-right">
-                Signup
-              </Link>
+              
               <Link to="/login" className="btn btn-outline-info float-right">
                 Login
               </Link>
