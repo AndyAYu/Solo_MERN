@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 // import BookCard from './BookCard';
-import newsJson from './news.json';
+// import newsJson from './news.json';
 import KommunicateChat from './Chat';
+import News from './News';
 
 
 // const apikey = "695d50b87ff846f6afff0a3e53aa2b1b"
@@ -12,40 +13,19 @@ class MainSplash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      news: {newsJson},
-    };
+      
+        };
     // this.newsFetch = this.newsFetch.bind(this);
-    this.scrollToTop = this.scrollToTop.bind(this);
+    // this.scrollToTop = this.scrollToTop.bind(this);
   }
 
   componentDidMount() {
     // this.newsFetch();
   };
 
-  scrollToTop() {
-    window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-    /* you can also use 'auto' behaviour
-      in place of 'smooth' */
-    });
-  };
   
-// fetch news api
-// newsFetch() {
-//   fetch('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=695d50b87ff846f6afff0a3e53aa2b1b')
-//   .then(response => {
-//     if (response.ok) {
-//       return response.json();
-//     }
-//     throw new Error('Network response was not ok.');
-//   })
-//   .then(data => {
-//     this.setState({ news: data });
-//   })
-//   .catch(error => {
-//     console.error(error);
-//   })};
+  
+
 
 
   render() {
@@ -93,21 +73,7 @@ class MainSplash extends Component {
               <hr />
             </div>
           </div>
-          <div className="list">
-            {this.state.news['newsJson'].articles && this.state.news['newsJson'].articles.map((article, i) => (
-              <div className="card" key={i}>
-                <a className="card-body hover-overlay"  target="_blank" rel="noreferrer" href={article.url}>
-                  <img className="img-responsive" alt="" width="100%"src={article.urlToImage}></img>
-                  <h5 className="w-100 h-50 text-dark">{article.title}</h5>
-                  <p className="text-dark">{article.author}</p>
-                  <p className="text-dark">{article.description}</p>
-                </a>
-              </div>
-            ))}
-              <button onClick={this.scrollToTop} className="btn btn-outline-info float-right">
-                Back to Top
-              </button>
-          </div>
+          <News />
               <KommunicateChat className="float-bottom-left bottom: 20px; right: 20px;"/>
         </div>
         
