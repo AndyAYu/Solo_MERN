@@ -1,7 +1,9 @@
 import { React, useState } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-import techNews from './techNews.json';
+import techNews from './News/techNews.json';
+import healthNews from './News/healthNews.json';
+import entertainmentNews from './News/entertainmentNews.json';
 
 function News(props) {
     const [news, setNews] = useState(techNews);
@@ -32,10 +34,9 @@ function News(props) {
     });
   };
   console.log(news.articles)
-  debugger
   //map news articles
     const articlesMap = news.articles.map((article, i) => (
-    <div className="card" key={i}>
+    <div className="card " key={i}>
         <a className="card-body hover-overlay"  target="_blank" rel="noreferrer" href={article.url}>
             <img className="img-responsive" alt="" width="100%"src={article.urlToImage}></img>
             <h5 className="w-100 h-50 text-dark">{article.title}</h5>
@@ -50,11 +51,19 @@ function News(props) {
 
     return (
         <div className="list">
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" onClick={() => setNews('techNews')}>Technology</a>
-                <a className="dropdown-item" onClick={() => setNews('healthNews')}>Health</a>
-                <a className="dropdown-item" onClick={() => setNews('entertainmentNews')}>Entertainment</a>
+            <div className="dropdown">
+                <button className="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Category
+                </button>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a className="dropdown-item" onClick={() => setNews(techNews)}>Technology</a>
+                    <a className="dropdown-item" onClick={() => setNews(healthNews)}>Health</a>
+                    <a className="dropdown-item" onClick={() => setNews(entertainmentNews)}>Entertainment</a>
+                </div>
             </div>
+            {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                
+            </div> */}
             <div>{articlesMap}</div>
               <button onClick={scrollToTop} className="btn btn-outline-info float-right">
                 Back to Top
