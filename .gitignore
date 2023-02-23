@@ -1,3 +1,4 @@
 #ignore some files
 info.txt
 /node_modules/
+Notes.md
