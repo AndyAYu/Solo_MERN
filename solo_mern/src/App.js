@@ -6,7 +6,7 @@ import CreateBook from './components/CreateBook';
 import MainSplash from './components/MainSplash';
 import ShowBookDetails from './components/ShowBookDetails';
 import UpdateBookInfo from './components/UpdateBookInfo';
-// import Google from './components/Google';
+import TaskManager from './components/TaskManager';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
@@ -18,10 +18,10 @@ class App extends Component {
           <Route exact path='/' element={<MainSplash/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<Signup/>} />
-          <Route path='/create-book' element={<CreateBook/>} />
+          {/* <Route path='/create-book' element={<CreateBook/>} />
           <Route path='/edit-book/:id' element={<UpdateBookInfo/>} />
-          <Route path='/show-book/:id' element={<ShowBookDetails/>} />
-          {/* <Route path='/google' element={<Google/>} /> */}
+          <Route path='/show-book/:id' element={<ShowBookDetails/>} /> */}
+          <Route path='/taskmanager' element={<TaskManager/>} />
         </Routes>
       </Router>
     );
