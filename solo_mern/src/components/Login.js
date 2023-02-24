@@ -14,7 +14,6 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    debugger
     const data = {
         Email: event.target[0].value,
         Password: event.target[1].value

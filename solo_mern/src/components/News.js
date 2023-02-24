@@ -33,7 +33,7 @@ function News(props) {
     behavior: 'smooth'
     });
   };
-  console.log(news.articles)
+//   console.log(news.articles)
   //map news articles
     const articlesMap = news.articles.map((article, i) => (
     <div className="card " key={i}>
