@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-import CreateBook from './components/CreateBook';
 import MainSplash from './components/MainSplash';
-import ShowBookDetails from './components/ShowBookDetails';
-import UpdateBookInfo from './components/UpdateBookInfo';
 import TaskManager from './components/TaskManager';
 import Login from './components/Login';
 import Signup from './components/Signup';

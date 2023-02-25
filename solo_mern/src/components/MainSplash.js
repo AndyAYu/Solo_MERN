@@ -43,9 +43,9 @@ class MainSplash extends Component {
                 + Add New Book
               </Link> */}
               
-              {/* <Link to="/login" className="btn btn-outline-info float-right">
+              <Link to="/login" className="btn btn-success float-right">
                 Login
-              </Link> */}
+              </Link>
               <nav className="navbar navbar-expand-lg navbar-light bg-darkgrey">
                 {/* <a className="navbar-brand" href="#">Home</a> */}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

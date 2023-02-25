@@ -14,23 +14,19 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const data = {
-        Email: event.target[0].value,
-        Password: event.target[1].value
-    };
-
     axios
-        .post('http://localhost:3000/api', data)
+        .post('http://localhost:8081/login', { email, password })
         .then(res => {
+            console.log("Login Successful!");
             setEmail('');
             setPassword('');
-            this.props.history.push('/login')
         }
         )
         .catch(err => {
             console.log("Error in Login!");
         }
         )
+        window.location.href = '/';
   }
 
   return (
@@ -60,7 +56,7 @@ export default function Login() {
                         />
 
                     </Form.Group>
-                    <Button block="true" size="lg" type="submit" disabled={!validateForm()}>
+                    <Button className="btn-success" block="true" size="lg" type="submit" disabled={!validateForm()}>
                     Login
                     </Button>
                 </Form>
