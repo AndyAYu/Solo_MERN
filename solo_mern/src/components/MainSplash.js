@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-// import BookCard from './BookCard';
-// import newsJson from './news.json';
+import Session from './Session';
 import KommunicateChat from './Chat';
 import News from './News';
 
@@ -15,18 +14,26 @@ class MainSplash extends Component {
     this.state = {
       
         };
+    this.isLoggedIn = this.isLoggedIn.bind(this);
     // this.newsFetch = this.newsFetch.bind(this);
     // this.scrollToTop = this.scrollToTop.bind(this);
   }
 
   componentDidMount() {
+    this.isLoggedIn();
     // this.newsFetch();
   };
 
-  
-  
-
-
+  isLoggedIn() {
+    const authToken = localStorage.getItem('token'); 
+    const isLoggedIn = authToken !== null;
+    debugger
+    if (isLoggedIn) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   render() {
     return (
@@ -42,10 +49,13 @@ class MainSplash extends Component {
               {/* <Link to="/create-book" className="btn btn-outline-warning float-right">
                 + Add New Book
               </Link> */}
-              
-              <Link to="/login" className="btn btn-success float-right">
+              <div>
+                {this.isLoggedIn() ? <Session /> : 
+                <Link to="/login" className="btn btn-success float-right">
                 Login
-              </Link>
+              </Link>}
+              </div>
+              
               <nav className="navbar navbar-expand-lg navbar-light bg-darkgrey">
                 {/* <a className="navbar-brand" href="#">Home</a> */}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

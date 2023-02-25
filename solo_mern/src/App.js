@@ -15,9 +15,6 @@ class App extends Component {
           <Route exact path='/' element={<MainSplash/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<Signup/>} />
-          {/* <Route path='/create-book' element={<CreateBook/>} />
-          <Route path='/edit-book/:id' element={<UpdateBookInfo/>} />
-          <Route path='/show-book/:id' element={<ShowBookDetails/>} /> */}
           <Route path='/taskmanager' element={<TaskManager/>} />
         </Routes>
       </Router>

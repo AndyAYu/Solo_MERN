@@ -18,15 +18,17 @@ export default function Login() {
         .post('http://localhost:8081/login', { email, password })
         .then(res => {
             console.log("Login Successful!");
+            const token = res.data.token;
+            localStorage.setItem('token', token);
             setEmail('');
             setPassword('');
+            window.location.href = '/';
         }
         )
         .catch(err => {
             console.log("Error in Login!");
         }
         )
-        window.location.href = '/';
   }
 
   return (
