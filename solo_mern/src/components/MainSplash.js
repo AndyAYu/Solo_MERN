@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import Session from './Session';
+import Logout from  './Logout';
 import KommunicateChat from './Chat';
 import News from './News';
 
@@ -50,12 +51,12 @@ class MainSplash extends Component {
                 + Add New Book
               </Link> */}
               <div>
-                {this.isLoggedIn() ? <Session /> : 
+                {this.isLoggedIn() ? 'Welcome fellow collector!' : 
                 <Link to="/login" className="btn btn-success float-right">
                 Login
               </Link>}
+              {this.isLoggedIn() ? 'logout button here' : null }
               </div>
-              
               <nav className="navbar navbar-expand-lg navbar-light bg-darkgrey">
                 {/* <a className="navbar-brand" href="#">Home</a> */}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
