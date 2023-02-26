@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Session from './Session';
 import Logout from  './Logout';
 import KommunicateChat from './Chat';
@@ -52,10 +52,9 @@ class MainSplash extends Component {
               </Link> */}
               <div>
                 {this.isLoggedIn() ? <div className="text-center">'Welcome fellow collector!'</div> : 
-                <Link to="/login" className="btn btn-success float-right">
+                <Link to="/login" className="btn btn-warning float-right">
                 Login
               </Link>}
-              {this.isLoggedIn() && <button className="float-right">'logout button here'</button>}
               </div>
               <nav className="navbar navbar-expand-lg navbar-light bg-darkgrey">
                 {/* <a className="navbar-brand" href="#">Home</a> */}
@@ -78,6 +77,7 @@ class MainSplash extends Component {
                     </li> */}
                   </ul>
                 </div>
+                {this.isLoggedIn() && <NavLink to={'#'}>{Logout}</NavLink>}
               </nav>
               <br />
               <br />

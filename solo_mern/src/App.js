@@ -5,6 +5,7 @@ import './App.css';
 import MainSplash from './components/MainSplash';
 import TaskManager from './components/TaskManager';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import Signup from './components/Signup';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<Signup/>} />
           <Route path='/taskmanager' element={<TaskManager/>} />
+          <Route path='/logout' element={<Logout/>} />
         </Routes>
       </Router>
     );
