@@ -5,7 +5,7 @@ import Session from './Session';
 import Logout from  './Logout';
 import KommunicateChat from './Chat';
 import News from './News';
-
+import beehive from '../images/beehive.png';
 
 // const apikey = "695d50b87ff846f6afff0a3e53aa2b1b"
 
@@ -28,7 +28,6 @@ class MainSplash extends Component {
   isLoggedIn() {
     const authToken = localStorage.getItem('token'); 
     const isLoggedIn = authToken !== null;
-    debugger
     if (isLoggedIn) {
       return true;
     } else {
@@ -39,41 +38,42 @@ class MainSplash extends Component {
   render() {
     return (
       <div className="mainSplash">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
+        <div className="container-fluid">
+            <div className="text-center">
               <br />
-              <Link href="/"><h6 className="display-4 text-center text-light">The| | Co| |ector</h6></Link>
+              <Link href="/"><a className="w-100 text-light">The| | Co| |ector</a>
+              <img src={beehive}></img>
+              </Link>
             </div>
 
-            <div className="col-md-11">
+            <div className="col-md">
               {/* <Link to="/create-book" className="btn btn-outline-warning float-right">
                 + Add New Book
               </Link> */}
               <div>
-                {this.isLoggedIn() ? 'Welcome fellow collector!' : 
+                {this.isLoggedIn() ? <div className="text-center">'Welcome fellow collector!'</div> : 
                 <Link to="/login" className="btn btn-success float-right">
                 Login
               </Link>}
-              {this.isLoggedIn() ? 'logout button here' : null }
+              {this.isLoggedIn() && <button className="float-right">'logout button here'</button>}
               </div>
               <nav className="navbar navbar-expand-lg navbar-light bg-darkgrey">
                 {/* <a className="navbar-brand" href="#">Home</a> */}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className="collapse navbar-collapse float-left" id="navbarNav">
                   <ul className="navbar-nav">
                     <li className="nav-item active">
                       <a className="nav-link" href="taskmanager">TaskManager <span className="sr-only">(current)</span></a>
                     </li>
-                    {/* <li className="nav-item">
+                    <li className="nav-item">
                       <a className="nav-link" href="#">Features</a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#">Pricing</a>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                       <a className="nav-link disabled" href="#">Disabled</a>
                     </li> */}
                   </ul>
@@ -87,8 +87,6 @@ class MainSplash extends Component {
           <News />
               <KommunicateChat className="float-bottom-left bottom: 20px; right: 20px;"/>
         </div>
-        
-      </div>
     );
   }
 }

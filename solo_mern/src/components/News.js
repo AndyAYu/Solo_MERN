@@ -65,9 +65,11 @@ function News(props) {
                 
             </div> */}
             <div>{articlesMap}</div>
-              <button onClick={scrollToTop} className="btn btn-outline-info float-right">
+            <div>
+              <button onClick={scrollToTop} className="btn btn-outline-info">
                 Back to Top
               </button>
+            </div>
           </div>
     )
 }
