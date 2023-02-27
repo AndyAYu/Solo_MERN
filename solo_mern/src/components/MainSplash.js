@@ -41,7 +41,7 @@ class MainSplash extends Component {
         <div className="container-fluid">
             <div className="text-center">
               <br />
-              <Link href="/"><a className="w-100 text-light">The| | Co| |ector</a>
+              <Link href="/"><a className="display-4 text-light">The| | Co| |ector</a>
               <img src={beehive}></img>
               </Link>
             </div>
@@ -51,7 +51,7 @@ class MainSplash extends Component {
                 + Add New Book
               </Link> */}
               <div>
-                {this.isLoggedIn() ? <div className="text-center">'Welcome fellow collector!'</div> : 
+                {this.isLoggedIn() ? <div className="text-center">Welcome fellow collector!</div> : 
                 <Link to="/login" className="btn btn-warning float-right">
                 Login
               </Link>}
