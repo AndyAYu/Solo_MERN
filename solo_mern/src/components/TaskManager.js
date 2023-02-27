@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import BasicPageLayout from './BasicPageLayout';
 
 class TaskManager extends Component {
   constructor(props) {

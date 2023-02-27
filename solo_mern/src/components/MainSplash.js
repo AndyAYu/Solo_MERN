@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Link, NavLink } from 'react-router-dom';
-import Session from './Session';
 import Logout from  './Logout';
 import KommunicateChat from './Chat';
 import News from './News';
@@ -42,7 +41,7 @@ class MainSplash extends Component {
             <div className="text-center">
               <br />
               <Link href="/"><a className="display-4 text-light">The| | Co| |ector</a>
-              <img src={beehive}></img>
+              <img src={beehive} alt=""></img>
               </Link>
             </div>
 
@@ -64,16 +63,13 @@ class MainSplash extends Component {
                 <div className="collapse navbar-collapse float-left" id="navbarNav">
                   <ul className="navbar-nav">
                     <li className="nav-item active">
-                      <a className="nav-link" href="taskmanager">TaskManager <span className="sr-only">(current)</span></a>
+                      <a className="nav-link" href="/taskmanager">TaskManager <span className="sr-only">(current)</span></a>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                       <a className="nav-link" href="#">Features</a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#">Pricing</a>
-                    </li>
-                    {/* <li className="nav-item">
-                      <a className="nav-link disabled" href="#">Disabled</a>
                     </li> */}
                   </ul>
                 </div>
