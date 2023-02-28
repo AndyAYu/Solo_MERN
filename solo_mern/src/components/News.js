@@ -51,7 +51,7 @@ function News(props) {
 
     return (
         <div className="list">
-            <div className="dropdown p-2">
+            <div className="dropdown pl-5">
                 <button className="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Category
                 </button>
@@ -64,7 +64,7 @@ function News(props) {
             {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 
             </div> */}
-            <div>{articlesMap}</div>
+            <div className="p-5">{articlesMap}</div>
             <div>
               <button onClick={scrollToTop} className="btn btn-outline-info">
                 Back to Top

@@ -1,0 +1,38 @@
+@media (max-width:768px) {
+    .Loginpage {
+        display: block;
+    }
+    .Loginhero {
+        display: none;
+    }
+    .LoginRight {
+        
+    }
+}
+
+.Loginpage {
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.Login {
+    padding-top: 15%;
+    width: 50%;
+}
+
+.LoginRight {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.Loginhero {
+    width: 50%;
+}
+
+
+
+#Loginimage {
+    max-width: 100%;
+}

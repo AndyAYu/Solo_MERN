@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import "../style/login.css";
 
 export default function Login() {
 
@@ -32,14 +33,19 @@ export default function Login() {
   }
 
   return (
-    <div className="Login">
-        <div className="container">
-            <div className="align-middle">
-                <Link to="/" className="btn btn-outline-warning float-left">
-                        Home Page
+
+    <div className="Loginpage container-fluid">
+        
+        <div className="Loginhero">
+            <img id="Loginimage"alt="giraffe"src="https://i0.wp.com/www.faunafondness.com/wp-content/uploads/2020/11/a-8.jpeg"></img>
+        </div>
+        <div className="Login">
+            <div className="LoginRight">
+                <Link to="/" className="btn btn-outline-warning ">
+                    Home Page
                 </Link>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group size="lg" controlId="email">
+                <Form id="Loginform" onSubmit={handleSubmit}>
+                    <Form.Group className="pt-3" size="lg" controlId="email">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         autoFocus
@@ -49,7 +55,7 @@ export default function Login() {
                         />
 
                     </Form.Group>
-                    <Form.Group size="lg" controlId="password">
+                    <Form.Group className="pt-3 pb-3" size="lg" controlId="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                         type="password"
@@ -58,13 +64,12 @@ export default function Login() {
                         />
 
                     </Form.Group>
-                    <Button className="btn-success" block="true" size="lg" type="submit" disabled={!validateForm()}>
+                    <Button className="btn-warning" block="true" size="lg" type="submit" disabled={!validateForm()}>
                     Login
                     </Button>
                 </Form>
             </div>
-        </div>
-
+    </div>
     </div>
   );
 
