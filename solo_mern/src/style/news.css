@@ -1,0 +1,11 @@
+@media (min-width: 768px) {
+    .articles {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+
+.articles {
+    padding-top: 5%;
+}

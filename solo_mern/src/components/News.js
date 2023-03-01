@@ -1,9 +1,9 @@
 import { React, useState } from 'react';
-import '../App.css';
 import { Link } from 'react-router-dom';
 import techNews from './News/techNews.json';
 import healthNews from './News/healthNews.json';
 import entertainmentNews from './News/entertainmentNews.json';
+import '../style/news.css';
 
 function News(props) {
     const [news, setNews] = useState(techNews);
@@ -64,7 +64,7 @@ function News(props) {
             {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 
             </div> */}
-            <div className="p-5">{articlesMap}</div>
+            <div className="articles">{articlesMap}</div>
             <div>
               <button onClick={scrollToTop} className="btn btn-outline-info">
                 Back to Top
