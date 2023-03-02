@@ -5,8 +5,8 @@
     .Loginhero {
         display: none;
     }
-    .LoginRight {
-        
+    .Login {
+        margin-top: 40%;
     }
 }
 
@@ -17,10 +17,12 @@
     justify-content: center;
 }
 
-.Login {
-    padding-top: 15%;
-    width: 50%;
-}
+@media (min-width:768px) {
+    .Login {
+        padding-top: 15%;
+        width: 50%;
+    }
+}    
 
 .LoginRight {
     margin-left: 10%;
@@ -34,5 +36,4 @@
 
 
 #Loginimage {
-    max-width: 100%;
 }

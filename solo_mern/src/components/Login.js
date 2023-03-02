@@ -64,9 +64,13 @@ export default function Login() {
                         />
 
                     </Form.Group>
-                    <Button className="btn-warning" block="true" size="lg" type="submit" disabled={!validateForm()}>
+                    <Button className="btn-warning" block="true" type="submit" disabled={!validateForm()}>
                     Login
                     </Button>
+                    <div>
+                    <a>Don't have an account yet?</a>
+                    <Link to="/signup" className="btn btn-warning ">Sign Up</Link>
+                    </div>
                 </Form>
             </div>
     </div>
