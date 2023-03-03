@@ -34,7 +34,7 @@ export default function Login() {
 
   return (
 
-    <div className="Loginpage container-fluid">
+    <div className="Loginpage container-">
         
         <div className="Loginhero">
             <img id="Loginimage"alt="giraffe"src="https://i0.wp.com/www.faunafondness.com/wp-content/uploads/2020/11/a-8.jpeg"></img>
@@ -42,7 +42,7 @@ export default function Login() {
         <div className="Login">
             <div className="LoginRight">
                 <Link to="/" className="btn btn-outline-warning ">
-                    Home Page
+                    The Hive
                 </Link>
                 <Form id="Loginform" onSubmit={handleSubmit}>
                     <Form.Group className="pt-3" size="lg" controlId="email">
@@ -69,7 +69,7 @@ export default function Login() {
                     </Button>
                     <div>
                     <a>Don't have an account yet?</a>
-                    <Link to="/signup" className="btn btn-warning ">Sign Up</Link>
+                    <Link to="/register" className="btn btn-warning ">Sign Up</Link>
                     </div>
                 </Form>
             </div>
